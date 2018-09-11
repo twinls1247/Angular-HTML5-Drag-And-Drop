@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+	<meta charset="utf-8" />
+	<title>AngularJS Plunker</title>
+	<script>document.write('<base href="' + document.location + '" />');</script>
+	<link rel="stylesheet" href="style.css" />
+	<script src="angular.js"></script>
+    <script src="angular-sanitize.js"></script>
+	<!--<script src="https://gist.github.com/RobinMalfait/7a84f534487ba0d2fb319e32d97b5efe.js"></script>-->
+	<script src="app.js"></script>
+	<script src="draganddrop.js"></script>
+</head>
+
+<body>
+	<div class="container" ng-controller="MainCtrl">
+		<div class="row topRow">
+			<h4 class="heading">
+				Drag and Drop 
+			</h4>
+		</div>
+		<table>
+			<tr>
+				<div class="drop-box"  ui-on-Drop="onDrop($event,$data,draggedItems)">
+			    
+                    <div ui-draggable="false"
+                    on-drop-success="dropSuccessHandler($event,$index,draggedItems)"
+                    ng-repeat="item in draggedItems track by $index">
+                        <p ng-bind-html="item.display"></p>
+                    </div>
+               
+
+		</div>
+			</tr>
+			<tr>
+				<td>
+					<table><tr>
+		<td ng-repeat="item in f ">
+			 
+				
+					  
+							<label  drag="item" ui-draggable="true" ng-bind-html= "item.function">  </label>	
+			
+		</td>
+	</tr>
+</table>
+  </td> 
+</tr>
+</table>
+
+	</div>
+
+	
+	
+</body>
+
+</html>

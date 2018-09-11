@@ -1,0 +1,40 @@
+/* Put your css in here */
+
+.topRow{
+    margin-bottom : 30px;
+}
+
+
+.dotted {
+	border: 1px #000 solid;
+    width: 100px;
+    height: 17px;
+    padding-top: 1px;
+}
+
+.on-drag-enter{
+    background-color : #aaaaaa;
+}
+
+.on-drag-hover:before {
+  content: 'Drop him gently';
+  display: block;
+  color: white;
+  font-size: x-large;
+  font-weight: 800;
+}
+
+ .drop-box {
+        width: 600px;
+        padding: 10px;
+        
+     min-height: 100px;
+        border: 1px #0094ff dashed;
+       
+    }
+img {
+	height:50px;
+	width:50px;
+	margin-top:10px;
+	   padding: 10px;;
+}    
