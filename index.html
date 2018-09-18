@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html ng-app="plunker">
+
+<head>
+	<meta charset="utf-8" />
+	<title>AngularJS Plunker</title>
+	<link rel="stylesheet" href="style.css" />
+	<script data-require="angular.js@1.1.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js" data-semver="1.1.5"></script>
+	<script src="app-bk2.js"></script>
+	<script src="draganddrop.js"></script>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container" ng-controller="MainCtrl">
+		<h1>Functions</h1>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<p ng-repeat="function in functions">
+					<img class="function-icon" ng-src="{{ function.iconUrl }}">
+					<strong>{{ function.name }}</strong>
+					<br>
+					<sub>{{ function.description }}</sub>
+				</p>
+
+				<select ng-model="selectedFunction" ng-options="function as function.name for function in functions">
+					<option value="">Select function</option>
+				</select>
+
+				<p ng-if="selectedFunction">
+					<img class="function-icon" ng-src="{{ selectedFunction.iconUrl }}" ui-draggable="true" drag="selectedFunction" on-drop-success="dropSuccessHandler($event, $index)">
+					<strong>{{ selectedFunction.name }}</strong>
+					<br>
+					<sub>{{ selectedFunction.description }}</sub>
+				</p>
+			</div>
+
+			<div class="col-sm-6">
+				<div class="expression-area" ui-on-Drop="onDrop($event,$data)">
+					<p ng-if="droppedFunction">
+						<img class="function-icon" ng-src="{{ droppedFunction.iconUrl }}">
+						<strong>{{ droppedFunction.name }}</strong>
+						<br>
+						<input type="text" ng-repeat="i in [] | range:droppedFunction.argumentCount track by $index" placeholder="Parameter {{ $index + 1 }}">
+					</p>
+				</div>
+
+				<button type="button" ng-disabled="!droppedFunction" ng-click="clearExpressionArea()" class="btn btn-primary btn-sm">Clear expression area</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

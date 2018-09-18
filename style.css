@@ -1,0 +1,26 @@
+.on-drag-enter {
+  background-color: #eee;
+}
+
+.on-drag-hover:before {
+  content: 'Drop here';
+  display: block;
+  color: black;
+  text-align: center;
+  font-size: x-large;
+  font-weight: 800;
+}
+
+.expression-area {
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 200px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.function-icon {
+  cursor: move;
+  width: 44px;
+  height: 31px;
+}
